@@ -8,20 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-        <h1 class="logo">OLIVER PISOS</h1>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <img src="https://via.placeholder.com/140x60?text=Oliver+Pisos" alt="Oliver Pisos" class="logo">
+        </div>
+
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
         </nav>
+
+        <div class="cart-trigger" id="carToggle" title="Abrir carrinho">
+            <span class="cart-count" id="cartCount"></span>
+        </div>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero"></section>
+        <section id="sobre" class="about-hero">
+            <div class="about-inner">
+                <h2>Sobre</h2>
+                <p>Historia de quanto tempo vcs mexem com pisos...</p>
+                <p>Acesse o nosso catálogo para ver fotos de atendimento reais a</p>
 
         <img class="logo-central" src="imagens/logo-pisos.png" alt="Logo Pisos">
         <div class="hero-content">
@@ -30,12 +41,140 @@
         </section>
 
         <section id="produtos" class="produtos">
-            <h2>Nossos Produtos</h2>
-            <p>Pisos Laminados</p>
+            
 
+            <section class="banner">
+                <img src="imagens/diferencas.png" alt="diferencas">
             <div class="Lista de produtos">
-
+                <h2>Nossos Produtos</h2>
                 <article class="card produtos-item">
+
+                    <section id="produtos" class="produtos">
+                        <h3>Pisos Laminados Unilim Click</h3>
+                        <p class="subtitle">Piso Unilim Click - Alta Resistência 
+                            Mesmo padrão da linha com encaixe click. Boa estabilidade e acabamento amadeirado.
+                            Garantia: 12 anos.</p>
+
+            <div class="product-grid" id="productGrid""></div>
+            </section>
+ 
+                 <!--Piso Laminado Unilim 1-->
+            <article class="card produtos-item">
+                <img src="imagens/unilimcapri.png" alt="Piso laminado cor capri">
+                <div class="card-info">
+                    <h3>Piso laminado Unilim Click -</h3>
+                    <h3>Cor-Capri</h3>
+                    <div class="card-bootom">      
+            <span class="preco">R$ <strong>119,90</strong> / m²</span>
+
+            <!-- Campo para digitar quantos m² -->
+            <label for="qtd-sardenha">Metros quadrados:</label>
+            <input type="number" id="qtd-sardenha" min="1" value="1">
+
+            <!-- Botão passa nome, preço e quantidade -->
+            <button onclick="
+                addCarrinho(
+                    'Piso Laminado Unilim Click Cor Sardenha',119.90,document.getElementById('qtd-sardenha').value)">Adicionar
+                        </div>
+                        </div>
+                        </article>
+
+                <!--Piso Laminado Unilim 2-->
+                        <article class="card produtos-item">
+                <img src="imagens/unilimrapolano.png" alt="Piso laminado cor rapolano">
+                <div class="card-info">
+                    <h3>Piso laminado Unilim Click -</h3>
+                    <h3>Cor-Rapolano</h3>
+                    <div class="card-bootom">      
+            <span class="preco">R$ <strong>119,90</strong> / m²</span>
+
+            <!-- Campo para digitar quantos m² -->
+            <label for="qtd-sardenha">Metros quadrados:</label>
+            <input type="number" id="qtd-sardenha" min="1" value="1">
+
+            <!-- Botão passa nome, preço e quantidade -->
+            <button onclick="
+                addCarrinho(
+                    'Piso Laminado Unilim Click Cor Sardenha',119.90,document.getElementById('qtd-sardenha').value)">Adicionar
+                        </div>
+                        </div>
+                        </article>
+
+                        <!--Piso Laminado Unilim 3-->
+                        <article class="card produtos-item">
+                <img src="imagens/unilimsiena.png" alt="Piso laminado cor siena">
+                <div class="card-info">
+                    <h3>Piso laminado Unilim Click -</h3>
+                    <h3>Cor-Siena</h3>
+                    <div class="card-bootom">      
+            <span class="preco">R$ <strong>119,90</strong> / m²</span>
+
+            <!-- Campo para digitar quantos m² -->
+            <label for="qtd-sardenha">Metros quadrados:</label>
+            <input type="number" id="qtd-sardenha" min="1" value="1">
+
+            <!-- Botão passa nome, preço e quantidade -->
+            <button onclick="
+                addCarrinho('Piso Laminado Unilim Click Cor Sardenha', 119.90,
+                    document.getElementById('qtd-sardenha').value )">
+                Adicionar
+                        </div>
+                        </div>
+                        </article>
+
+                        <!--Piso Laminado Unilim 4-->
+                        <article class="card produtos-item">
+                <img src="imagens/unilimsardenha.png" alt="Piso laminado cor sardenha">
+                <div class="card-info">
+                    <h3>Piso laminado Unilim Click -</h3>
+                    <h3>Cor-Sardenha</h3>
+                    <div class="card-bootom">      
+            <span class="preco">R$ <strong>119,90</strong> / m²</span>
+
+            <!-- Campo para digitar quantos m² -->
+            <label for="qtd-sardenha">Metros quadrados:</label>
+            <input type="number" id="qtd-sardenha" min="1" value="1">
+
+            <!-- Botão passa nome, preço e quantidade -->
+            <button onclick="
+                addCarrinho(
+                    'Piso Laminado Unilim Click Cor Sardenha',119.90,document.getElementById('qtd-sardenha').value)"> Adicionar
+                        </div>
+                        </div>
+                        </article>
+
+                        <!--Piso Impressive Descrição-->
+                        <section id="produtos" class="produtos">
+                        <h3>Pisos Laminados Impresive</h3>
+                        <p class="subtitle">Piso Impressive -
+                            Revestimento HydroSeal nas ranhuras.É resistente á água ,ideal para áreas úmidas e fácil de limpas 
+                            
+                            Garantia: 25 anos residencial.</p>
+
+                            <!--Piso Laminado Impressive 1-->
+            <article class="card produtos-item">
+                <img src="imagens/" alt="Piso laminado cor capri">
+                <div class="card-info">
+                    <h3>Piso laminado Unilim Click -</h3>
+                    <h3>Cor-Capri</h3>
+                    <div class="card-bootom">      
+            <span class="preco">R$ <strong>119,90</strong> / m²</span>
+
+            <!-- Campo para digitar quantos m² -->
+            <label for="qtd-sardenha">Metros quadrados:</label>
+            <input type="number" id="qtd-sardenha" min="1" value="1">
+
+            <!-- Botão passa nome, preço e quantidade -->
+            <button onclick="
+                addCarrinho(
+                    'Piso Laminado Unilim Click Cor Sardenha',119.90,document.getElementById('qtd-sardenha').value)">Adicionar
+                        </div>
+                        </div>
+                        </article>
+
+
+
+
 
 </body>
 </html>
