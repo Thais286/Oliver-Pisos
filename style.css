@@ -1,0 +1,11 @@
+body{
+    font-family: Arial;padding:20px;
+
+}
+
+.product-grid{
+    display: grid;gap: 20px;  grid-template-columns: repeat(auto-fit,minmax(200px,1fr)) ; padding: 20px;width: 100%;box-sizing: border-box;
+}
+
+.card.p
+
