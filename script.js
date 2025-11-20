@@ -1,99 +1,65 @@
-let carrinhoItens = [];
+let carrinho = [];
+let total = 0;
 
-const carrinhoElement = document.getElementById('carrinho');
-const listaElement = document.getElementById('lista');
-const totalElement = document.getElementById('total');
-const cartCountElement = document.getElementById('cartCount');
-const cartToggleElement = document.getElementById('carToggle');
-
-function addCarrinho(nome, preco, quantidade) {
-    const qtd = parseInt(quantidade) || 1;
-    if (qtd <= 0) return;
-
-    const itemExistente = carrinhoItens.find(item => item.nome === nome);
-
-    if (itemExistente) {
-        itemExistente.quantidade += qtd;
-    } else {
-        carrinhoItens.push({
-            nome: nome,
-            preco: preco,
-            quantidade: qtd
-        });
-    }
-
-    renderizarCarrinho();
-    carrinhoElement.classList.add('carrinho--aberto');
+function addCarrinho(nome, preco) {
+    carrinho.push({ nome, preco });
+    total += preco;
+    atualizarCarrinho();
 }
 
 function removerItem(index) {
-    if (index >= 0 && index < carrinhoItens.length) {
-        carrinhoItens.splice(index, 1);
-        renderizarCarrinho();
-    }
+    total -= carrinho[index].preco;
+    carrinho.splice(index, 1);
+    atualizarCarrinho();
 }
 
-function calcularTotal() {
-    return carrinhoItens.reduce((total, item) => {
-        const subtotal = item.preco * item.quantidade;
-        return total + subtotal;
-    }, 0);
+function limparCarrinho() {
+    carrinho = [];
+    total = 0;
+    atualizarCarrinho();
 }
 
-function renderizarCarrinho() {
-    listaElement.innerHTML = '';
+function atualizarCarrinho() {
+    const lista = document.getElementById("lista-carrinho");
+    const totalEl = document.getElementById("total");
 
-    carrinhoItens.forEach((item, index) => {
-        const li = document.createElement('li');
-        const subtotal = (item.preco * item.quantidade).toFixed(2);
+    lista.innerHTML = "";
 
+    carrinho.forEach((item, index) => {
+        const li = document.createElement("li");
         li.innerHTML = `
-            ${item.nome} (${item.quantidade} m²) - R$ ${subtotal.replace('.', ',')}
-            <button class="remover-item" onclick="removerItem(${index})">
-                &times;
+            ${item.nome} - R$ ${item.preco.toFixed(2)}
+            <button onclick="removerItem(${index})" style="margin-left:10px; background:red; color:white; border:none; padding:4px 8px; border-radius:5px; cursor:pointer;">
+                X
             </button>
         `;
-        listaElement.appendChild(li);
+        lista.appendChild(li);
     });
 
-    const total = calcularTotal();
-    const totalFormatado = total.toFixed(2).replace('.', ',');
-    totalElement.textContent = totalFormatado;
-
-    const totalItens = carrinhoItens.reduce((count, item) => count + item.quantidade, 0);
-    cartCountElement.textContent = totalItens;
-
-    if (carrinhoItens.length > 0) {
-        cartCountElement.classList.add('cart-count--active');
-    } else {
-        cartCountElement.classList.remove('cart-count--active');
-        carrinhoElement.classList.remove('carrinho--aberto');
-    }
+    totalEl.textContent = total.toFixed(2);
 }
 
-function toggleCarrinho() {
-    carrinhoElement.classList.toggle('carrinho--aberto');
+function finalizarPedido() {
+    const entrega = document.getElementById("tipoEntrega").value;
+    const pagamento = document.getElementById("pagamento").value;
+
+    const nome = document.getElementById("nomeCliente").value;
+    const endereco = document.getElementById("enderecoCliente").value;
+    const obs = document.getElementById("obsCliente").value;
+
+    let mensagem = ` *Pedido Oliver Pisos* \n\n`;
+
+    carrinho.forEach(item => {
+        mensagem += `• ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
+    });
+
+    mensagem += `\n*Total:* R$ ${total.toFixed(2)}\n`;
+    mensagem += `*Entrega:* ${entrega}\n`;
+    mensagem += `*Pagamento:* ${pagamento}\n\n`;
+    mensagem += `👤 *Cliente:* ${nome}\n`;
+    mensagem += `📍 *Endereço:* ${endereco}\n`;
+    mensagem += `📝 *Observações:* ${obs}\n`;
+
+    const url = `https://wa.me/553187880429?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
 }
-
-function fecharCarrinho(event) {
-    if (!carrinhoElement.contains(event.target) && !cartToggleElement.contains(event.target)) {
-        carrinhoElement.classList.remove('carrinho--aberto');
-    }
-
-    if (event.type === 'keyup' && event.key === 'Escape') {
-        carrinhoElement.classList.remove('carrinho--aberto');
-    }
-}
-
-function inicializar() {
-    cartToggleElement.addEventListener('click', toggleCarrinho);
-    document.addEventListener('click', fecharCarrinho);
-    document.addEventListener('keyup', fecharCarrinho);
-
-    renderizarCarrinho();
-
-    window.addCarrinho = addCarrinho;
-    window.removerItem = removerItem;
-}
-
-document.addEventListener('DOMContentLoaded', inicializar);
