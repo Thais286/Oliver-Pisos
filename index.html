@@ -1863,26 +1863,71 @@ Na Oliver Pisos, você encontra variedade, preço justo e a segurança de escolh
             <section class="banner">
             <img src="imagens/inforodapes.png" alt="Informações"></section>
 
-            <div class="container-recomendacoes">
-    <img src="imagens/recomendacoes.png" alt="Recomendações">
+             <section class="banner">
+            <img src="imagens/recomendacoes.png" alt="Informações"></section>
+
+           
+
+<!-- CARRINHO -->
+           <aside class="carrinho">
+    <h3>🛒 Carrinho</h3>
+
+    <ul id="lista-carrinho"></ul>
+
+    <p class="total">Total: R$ <span id="total">0.00</span></p>
+
+    <button class="limpar" onclick="limparCarrinho()">Esvaziar Carrinho</button><br>
+
+
+    <label>Forma de Entrega</label>
+    <select id="tipoEntrega">
+        <option value="retirada">Retirada</option>
+        <option value="entrega">Entrega</option>
+    </select><br>
+
+    <label>Forma de Pagamento</label>
+    <select id="pagamento">
+        <option value="pix">PIX</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartao">Cartão</option>
+    </select><br>
+
+    <button class="finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
+</aside>
+
+  
+    <section id="dados-entrega" class="contato">
+    <h1>📦 Dados do Pedido</h1>
+
+    <div class="form-entrega">
+        <label>Nome:</label>
+        <input type="text" id="nomeCliente" placeholder="Seu nome"><br><br>
+
+        <label>Endereço (caso entrega):</label>
+        <input type="text" id="enderecoCliente" placeholder="Rua, número, bairro"><br><br>
+
+        <label>Observações:</label>
+        <textarea id="obsCliente" placeholder="Ex:  Ponto de referência..."></textarea></br>
+
+        
+        <p>O preço da entrega será calculado com base na sua localização</p>
+    </div>
+
+</form>
+    </section>
+
+
+<section id="contato" class="contato">
+    <h2>Contato</h2>
+    <p><a href="https://wa.me/553196511118" target="_blank">WhatsApp</a></p>
+
+    <p><a href="https://instagram.com/oliverpisosbh" target="_blank">Instagram</a></p>
+
 </div>
 
 
+</section>
 
-            
-
-
-
-
-
-
-
-
-                   
-
-
-
-
-                   
+<script src="script.js"></script>
 </body>
 </html>

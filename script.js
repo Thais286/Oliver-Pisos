@@ -47,7 +47,7 @@ function finalizarPedido() {
     const endereco = document.getElementById("enderecoCliente").value;
     const obs = document.getElementById("obsCliente").value;
 
-    let mensagem = ` *Pedido Oliver Pisos* \n\n`;
+    let mensagem = ` Pedido Oliver Pisos* \n\n`;
 
     carrinho.forEach(item => {
         mensagem += `• ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
@@ -60,6 +60,6 @@ function finalizarPedido() {
     mensagem += `📍 *Endereço:* ${endereco}\n`;
     mensagem += `📝 *Observações:* ${obs}\n`;
 
-    const url = `https://wa.me/553187880429?text=${encodeURIComponent(mensagem)}`;
+    const url = `https://wa.me/553196511118?text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
 }

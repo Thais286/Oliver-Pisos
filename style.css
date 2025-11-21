@@ -1,58 +1,84 @@
-body{
-    font-family: Arial;padding:20px;
+/* ============================== */
+/* === ESTILOS BASE (DESKTOP/MOBILE FIRST) === */
+/* ============================== */
 
-}
-.navbar .logo{
-    color: black;font-size: 35px;font-weight: bolder;
-}
-
-.navbar ul{
-    display: flex;list-style: none;gap: 20px;
+body {
+    font-family: Arial;
+    padding: 20px;
 }
 
-.brand{
-    text-align: center;width: 100%;padding: 10px;
+.navbar .logo {
+    color: black;
+    font-size: 35px;
+    font-weight: bolder;
 }
 
-.product-grid{
-    display: grid;gap: 10px;  grid-template-columns: repeat(auto-fit,minmax(250px,2fr)) ; padding: 10px;width: 100%;box-sizing: border-box;
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-.product-grid img{
+.brand {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.product-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-grid img {
     width: 100%;
     max-width: 550px;
-    height: 300px;
+    /* CORREÇÃO: Altura responsiva */
+    height: auto;
+    max-height: 300px;
     object-fit: contain;
     border-radius: 30px;
 }
 
-.container-recomendacoes{
-    background-color: white;
-    text-align: center;
-    width: 70%;
-    height: 10px;
+/* ============================== */
+/* NOVO: CLASSE PARA IMAGENS DE CONTEÚDO (Recomendações, Ficha Técnica) */
+/* Isso fará com que elas fiquem mais largas no notebook */
+/* Lembre-se de adicionar class="img-conteudo" na sua tag <img> no HTML */
+.img-conteudo {
+    width: 100%;
+    /* Define uma largura máxima alta para notebooks */
+    max-width: 900px; 
+    height: auto; 
     display: block;
-    margin: 10px auto;
-    padding: 20px 0;
+    margin: 20px auto; /* Centraliza a imagem */
 }
-
+/* ============================== */
 
 .card {
     text-align: center;
 }
 
-.card.produtos-item{
-    background-color: #69b677; border-radius: 10px;
+.card.produtos-item {
+    background-color: #69b677;
+    border-radius: 10px;
     padding: 10px;
-     box-shadow: 5px 3px 10px 10px rgba(0,0,0,0.15px);
-      display: flex; flex-direction: column;align-items: center;
+    box-shadow: 5px 3px 10px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-
 }
 
-
-.card.produtos-itens img{
-    width: 100%; max-width: 250px;height: auto; border-radius: 10px; display: block;
+.card.produtos-itens img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
     object-fit: contain;
 }
 
@@ -62,49 +88,167 @@ body{
     object-fit: contain !important;
 }
 
-
-.card-info h3{
-    margin: 5px 0; text-align: center;
+.card-info h3 {
+    margin: 5px 0;
+    text-align: center;
 }
 
-.card-bootom{
-    width: 100%;margin-top: 20px;
+.card-bootom {
+    width: 100%;
+    margin-top: 20px;
 }
 
-#sobre{
-    background-color: #6fb277;padding: 20px;text-align: center;
+#sobre {
+    background-color: #6fb277;
+    padding: 20px;
+    text-align: center;
 }
 
-.lista-de-produtos h2{
-    text-align: center;background-color: #116f0d;color: white;
+.lista-de-produtos h2 {
+    text-align: center;
+    background-color: #116f0d;
+    color: white;
 }
 
-.lista-de-produtos h1{
-    text-align: center;background-color: #69be66;color: rgb(11, 57, 26);
+.lista-de-produtos h1 {
+    text-align: center;
+    background-color: #69be66;
+    color: rgb(11, 57, 26);
 }
 
-.banner img{
-    display: block;margin: 0 auto;
+.banner img {
+    display: block;
+    margin: 0 auto;
     flex-shrink: 0;
-    width: 800px; height: 300px;
+    width: 100%;
+    max-width: 900px; /* Aumentado para melhor visualização em desktop */
+    height: auto;
+    max-height: 300px;
     padding: 30px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
-.preco{
-    font-size: 18px;display: block;text-align: center;margin-bottom: 15px;
+.preco {
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.card-bootom input[type="number"]{
-width: 75%;padding: 6px;margin: 6px 0;font-size: 16px;border-radius: 8px;
+.card-bootom input[type="number"] {
+    width: 75%;
+    padding: 6px;
+    margin: 6px 0;
+    font-size: 16px;
+    border-radius: 8px;
 }
 
-.card-bootom button{
-    width: 80%;padding:8px;background-color: #084e06;color:white;border: none;border-radius: 8px;cursor: pointer;
+.card-bootom button {
+    width: 80%;
+    padding: 8px;
+    background-color: #084e06;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.card-bootom button:hover{
+.card-bootom button:hover {
     background: #5ae799;
 }
 
+.contato {
+    width: 90%;
+    margin: 10px auto;
+    background: #136337;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+}
 
+.carrinho {
+    width: 260px;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    background-color: #c6eaca;
+    color: #116f0d; /* Ajustado para bom contraste */
+    padding: 15px;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+.carrinho h3 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #c6eaca;
+    color: #116f0d;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ============================== */
+/* === MEDIA QUERIES (RESPONSIVIDADE) === */
+/* ============================== */
+
+/* --------------------------------- */
+/* === CELULARES (Máximo de 600px) === */
+/* --------------------------------- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    /* Navegação */
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* Grid de Produtos */
+    .product-grid {
+        grid-template-columns: 1fr;
+        padding: 5px;
+    }
+
+    /* Contato */
+    .contato {
+        width: 95%;
+        font-size: 16px;
+    }
+
+    /* NOVO: Ajuste de Largura para Celular */
+    /* Garante que essas imagens ocupem 95% da tela do celular */
+    .img-conteudo, .banner img {
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    
+    /* Carrinho Fixo */
+    .carrinho {
+        width: 90%;
+        top: auto;
+        bottom: 10px;
+        right: 5%;
+        left: 5%;
+        padding: 10px;
+    }
+}
+
+/* --------------------------------- */
+/* === TABLETS (Entre 601px e 1024px) === */
+/* --------------------------------- */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
