@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
+    <header>
 
-        <nav class="main-nav">
-            <a href="#home">Home</a>
-            <a href="#produtos">Produtos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+        <nav class="navbar">
+            <h1 class="logo">Oliver Pisos</h1>
+           <ul class="nav-links">
+             <li><a href="#home">Home</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+           </ul>
         </nav>
 
         <div class="header-inner">
@@ -74,24 +77,41 @@ Na Oliver Pisos, você encontra variedade, preço justo e a segurança de escolh
  
                  <!--Piso Laminado Unilim 1-->
             <article class="card produtos-item">
-                <img src="imagens/unilimcapri.png" alt="Piso laminado cor capri">
-                <div class="card-info">
-                    <h3>Piso laminado Unilim Click -</h3>
-                    <h3>Cor-Capri</h3>
-                    <div class="card-bootom">      
+    
+    <!-- Imagem do produto -->
+    <img src="imagens/unilimcapri.png" alt="Piso laminado cor capri">
+
+    <div class="card-info">
+
+        <!-- Nome do produto -->
+        <h3>Piso Laminado Unilim Click</h3>
+        <h3>Cor Capri</h3>
+
+        <div class="card-bootom">
+
+            <!-- Preço -->
             <span class="preco">R$ <strong>119,90</strong> / m²</span>
 
             <!-- Campo para digitar quantos m² -->
             <label for="qtd-capri">Metros quadrados:</label>
             <input type="number" id="qtd-capri" min="1" value="1">
 
-            <!-- Botão passa nome, preço e quantidade -->
+            <!-- Botão -->
             <button onclick="
                 addCarrinho(
-                    'Piso Laminado Unilim Click Cor capri',119.90,document.getElementById('qtd-capri').value)">Adicionar
-                        </div>
-                        </div>
-                        </article>
+                    'Piso Laminado Unilim Click Cor Capri',
+                    119.90,
+                    document.getElementById('qtd-capri').value
+                )
+            ">
+                Adicionar
+            </button>
+
+        </div>
+    </div>
+
+</article>
+
 
                 <!--Piso Laminado Unilim 2-->
                         <article class="card produtos-item">
@@ -876,7 +896,11 @@ Na Oliver Pisos, você encontra variedade, preço justo e a segurança de escolh
 
 
                         <section class="banner">
-                            <img src="imagens/informacoesnitidez.png" alt="Informações">
+                            <img src="imagens/infolaminados.png" alt="Informações">
+
+                            <div class="lista-de-produtos">
+                            <h2>Pisos Vinilicos</h2>
+                            <article class="card produtos-item">
                 
                    
 </body>
