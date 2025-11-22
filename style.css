@@ -8,7 +8,7 @@ body {
 }
 
 .navbar .logo {
-    color: black;
+    color: rgb(13, 135, 44);
     font-size: 35px;
     font-weight: bolder;
 }
@@ -37,7 +37,6 @@ body {
 .product-grid img {
     width: 100%;
     max-width: 550px;
-    /* CORREÇÃO: Altura responsiva */
     height: auto;
     max-height: 300px;
     object-fit: contain;
@@ -45,16 +44,26 @@ body {
 }
 
 /* ============================== */
-/* NOVO: CLASSE PARA IMAGENS DE CONTEÚDO (Recomendações, Ficha Técnica) */
-/* Isso fará com que elas fiquem mais largas no notebook */
-/* Lembre-se de adicionar class="img-conteudo" na sua tag <img> no HTML */
+/* CLASSE PARA IMAGENS DE CONTEÚDO */
 .img-conteudo {
     width: 100%;
-    /* Define uma largura máxima alta para notebooks */
     max-width: 900px; 
     height: auto; 
     display: block;
-    margin: 20px auto; /* Centraliza a imagem */
+    margin: 20px auto;
+}
+/* ============================== */
+
+/* ============================== */
+/* === CLASSE PARA IMAGENS DE INFORMAÇÕES (Tabelas) === */
+section.banner .info-imagem {
+    display: block;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 95%; /* Máxima Largura da Tela */
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
 }
 /* ============================== */
 
@@ -116,17 +125,7 @@ body {
     color: rgb(11, 57, 26);
 }
 
-.banner img {
-    display: block;
-    margin: 0 auto;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 900px; /* Aumentado para melhor visualização em desktop */
-    height: auto;
-    max-height: 300px;
-    padding: 30px;
-    object-fit: cover;
-}
+/* NOTE: O BLOCO .banner img FOI REMOVIDO AQUI */
 
 .preco {
     font-size: 18px;
@@ -173,7 +172,7 @@ body {
     top: 100px;
     right: 10px;
     background-color: #c6eaca;
-    color: #116f0d; /* Ajustado para bom contraste */
+    color: #116f0d;
     padding: 15px;
     border-radius: 15px;
     z-index: 10;
@@ -221,9 +220,8 @@ footer {
         font-size: 16px;
     }
 
-    /* NOVO: Ajuste de Largura para Celular */
-    /* Garante que essas imagens ocupem 95% da tela do celular */
-    .img-conteudo, .banner img {
+    /* Ajuste de Largura para Celular */
+    .img-conteudo, .banner img, .info-imagem {
         width: 95%;
         margin: 10px auto;
         padding: 10px;
@@ -251,4 +249,34 @@ footer {
     .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
+}
+
+/* ======== MODAL DE ZOOM NA IMAGEM ======== */
+.zoom-modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.zoom-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+}
+
+.close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
 }
